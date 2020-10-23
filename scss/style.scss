@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #2f4f4f;
+}
+
+.first-button {
+  position: relative;
+  padding: 10px 15px;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  cursor: pointer;
+  letter-spacing: 2px;
+  color: rgba(0, 0, 0, 0.87);
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.2s 0.2s linear;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.281),
+      0 0 40px rgba(255, 255, 255, 0.363), 0 0 80px rgba(255, 255, 255, 0.342);
+    transition: 0.2s 0.6s linear;
+    color: #1e90ff;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: -1;
+    transform: translateX(-100%);
+    transition: transform 0.2s 0.4s linear;
+  }
+
+  &:hover::before {
+    transform: translateX(0%);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    z-index: -1;
+    transform: translateX(100%);
+    transition: transform 0.2s 0.6s linear;
+  }
+  &:hover::after {
+    transform: translateX(0);
+    transition-delay: 0.2s;
+  }
+}
+.second {
+  position: relative;
+  margin: 0 60px;
+  padding: 10px 15px;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  cursor: pointer;
+  letter-spacing: 2px;
+  color: #081a2b;
+  overflow: hidden;
+  transition: 0.3s 0s ease-in-out;
+
+  &:hover {
+    background: #ff1493;
+    transition-delay: 1.6s;
+    box-shadow: 0 0 10px #ff1493, 0 0 50px #ff1493, 0 0 100px #ff1493;
+    color: #fff;
+  }
+
+  &:hover span:nth-child(1) {
+    animation: span1 0.8s 0.8s linear;
+  }
+  &:hover span:nth-child(2) {
+    animation: span2 0.8s linear;
+  }
+  &:hover span:nth-child(3) {
+    animation: span3 0.8s 0.4s linear;
+  }
+  &:hover span:nth-child(4) {
+    animation: span4 0.8s 1.2s linear;
+  }
+}
+
+span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #ff1493);
+  transform: translateX(-100%);
+}
+span:nth-child(2) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to left, transparent, #ff1493);
+  transform: translateX(100%);
+  transition: 0.4s linear;
+}
+span:nth-child(3) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, #ff1493);
+  transform: translatey(100%);
+  transition: 0.4s 0.2s linear;
+}
+span:nth-child(4) {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #ff1493);
+  transform: translatey(-100%);
+}
+
+@keyframes span3 {
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes span2 {
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes span1 {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes span4 {
+  to {
+    transform: translateY(100%);
+  }
+}
